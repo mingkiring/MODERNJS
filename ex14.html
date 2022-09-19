@@ -1,0 +1,22 @@
+<!--클로저 활용 1. 상태유지-->
+<!DOCTYPE html>
+<html>
+    <button class = "toggle" > toggle </button>
+    <div class ="box" style =" width: 100px; height: 100px; background: red;"></div>
+
+    <script>
+        var box = document.querySelector('.box');
+        var toggleBtn = document.querySelector('.toggle');
+
+        var toggle = (function(){
+            var isShow = false;
+
+            return function (){
+                box.style.display = isShow? 'block': 'none';
+
+                isShow = !isShow;
+            };
+        })();
+        toggleBtn.onclick = toggle;
+    </script>
+</html>

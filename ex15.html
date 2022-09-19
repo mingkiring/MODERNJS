@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Counting</p>
+  <button id="inclease">+</button>
+  <p id="count">0</p>
+  <script>
+    var incleaseBtn = document.getElementById('inclease');
+    var count = document.getElementById('count');
+
+    /*
+    전역변수를 이용한 count
+    // 카운트 상태를 유지하기 위한 전역 변수
+    var counter = 0;
+
+    function increase() {
+      return ++counter;
+    }
+    */
+   //클로저를 이용한 count 
+   var increase = (function(){
+    var counter = 0;
+    return function(){
+        return ++counter;;
+    };
+   }());
+
+    incleaseBtn.onclick = function () {
+      count.innerHTML = increase();
+    };
+  </script>
+</body>
+</html>
